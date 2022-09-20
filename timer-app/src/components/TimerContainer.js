@@ -7,8 +7,12 @@ const TimerContainer = () =>{
     const [started, setStarted] = useState(false);
     const [paused, setPaused] = useState(false);
     const [isReset, setIsReset] = useState(true);
+    const [initialTime, setInitialTime] = useState(0);
+
     var timer;
     const startClock =(time) =>{
+        console.log(time.minutes);
+        setInitialTime(Number(time.minutes)*60+Number(time.seconds));
         setMinutes(time.minutes);
         if (time.seconds > 60)
         {
@@ -35,11 +39,11 @@ const TimerContainer = () =>{
     useEffect(()=> {
         
         
-            if (started && seconds >= 1 && minutes >= 0)
+            if (started && (minutes*60+seconds)>0 )
                 timer = setInterval(()=> {
                     updateTime();
                 }, 1000);
-            else{
+            else {
                 setColor('timer-normal');
                 clearInterval(timer);
             }
@@ -62,12 +66,16 @@ const TimerContainer = () =>{
             else
                 setColor('timer-normal');
         }
-        setSeconds(seconds-1);
-        if (seconds < 0)
+        
+        if (seconds <= 0)
         {
+            console.log('gone')
             setSeconds(59);
             setMinutes(minutes-1);
         } 
+        else
+            setSeconds(seconds-1);
+        
     }
     
     const resetClock =() => {
@@ -98,7 +106,7 @@ const TimerContainer = () =>{
     
     return(
         <div className='timer-container'>
-            <Timer minutes = {minutes} seconds = {seconds} color = {color}  >
+            <Timer minutes = {minutes} seconds = {seconds} color = {color} initialTime={initialTime}  >
 
             </Timer>
             <Controls onSubmit = {startClock} onReset = {resetClock} onPause ={pauseOrPlayClock} paused ={paused} isReset={isReset}>

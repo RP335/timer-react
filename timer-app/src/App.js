@@ -4,11 +4,11 @@ import TimerContainer from './components/TimerContainer';
 
 function App() {
   return (
-    <>
+    <div className='timer-app'>
      <TimerContainer>
 
      </TimerContainer>
-    </>
+    </div>
   );
 }
 

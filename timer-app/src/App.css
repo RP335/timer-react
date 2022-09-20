@@ -55,7 +55,8 @@ body {
 .timer-container {
   display: flex;
   flex-direction: column;
-  margin-top: 180px;
+  margin: 0;
+  padding-top: 90px;
   align-items: center;
   justify-content: center;
   
@@ -63,8 +64,18 @@ body {
 .timer-text-container {
   text-align: center;
   font-size: 4rem;
-  margin: 100px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -195px auto;
+  width: 75%;
   
+}
+.timer-app{
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  background-color: #282c34;
 }
 .timer-body {
   width: 300px;
@@ -97,3 +108,4 @@ body {
 
 
 }
+
