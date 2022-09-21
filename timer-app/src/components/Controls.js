@@ -33,7 +33,7 @@ const Controls = (props) => {
             </form>
             <button className='set-time-button' onClick ={handleSubmit}>Start Counting</button> 
             <button className= 'reset-button' onClick = {handleReset}>Reset</button>     
-            <button className= 'pause-button' onClick = {handlePausePlay}>{props.isReset? 'Rause': props.paused? 'Resume' : 'Pause'}</button>     
+            <button className= 'pause-button' onClick = {handlePausePlay}>{props.isReset? 'Pause': props.paused? 'Resume' : 'Pause'}</button>     
         </div>
     )
 }

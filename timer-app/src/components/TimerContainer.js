@@ -14,6 +14,7 @@ const TimerContainer = () =>{
         console.log(time.minutes);
         setInitialTime(Number(time.minutes)*60+Number(time.seconds));
         setMinutes(time.minutes);
+        setPaused(false);
         if (time.seconds > 60)
         {
             const add = Math.floor(time.seconds/60);
@@ -86,7 +87,7 @@ const TimerContainer = () =>{
     }
     const pauseOrPlayClock =(pause) =>{
         if (isReset === true ){
-            
+            setPaused(true);
             return;
         }
         if (pause === true && isReset === false)
